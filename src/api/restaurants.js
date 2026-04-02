@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';
+import { BASE_URL } from './config';
 
 export const getRestaurants = async () => {
   const response = await fetch(`${BASE_URL}/places`);
