@@ -1,6 +1,14 @@
 import RestaurantCard from './RestaurantCard';
 
-const RestaurantList = ({ restaurants, loading }) => {
+const RestaurantList = ({ restaurants, loading, error }) => {
+  if (error) {
+    return (
+      <div className="rounded-2xl bg-red-100 px-6 py-4 text-red-700">
+        {error}
+      </div>
+    );
+  }
+
   return (
     <section className="rounded-2xl bg-white p-6 shadow-sm">
       <h2 className="mb-4 text-center text-base font-medium text-gray-700">
