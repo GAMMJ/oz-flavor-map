@@ -11,6 +11,16 @@ export const getFavorites = async () => {
   return data.places;
 };
 
+export const deleteFavorite = async (id) => {
+  const response = await fetch(`${BASE_URL}/users/places/${id}`, {
+    method: 'DELETE',
+  });
+
+  if (!response.ok) {
+    throw new Error('찜 삭제에 실패했습니다.');
+  }
+};
+
 export const addFavorite = async (place) => {
   const response = await fetch(`${BASE_URL}/users/places`, {
     method: 'POST',
