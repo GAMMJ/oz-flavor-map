@@ -1,6 +1,6 @@
 import RestaurantCard from './RestaurantCard';
 
-const FavoriteSection = ({ favorites }) => {
+const FavoriteSection = ({ favorites, onDelete }) => {
   if (favorites.length === 0) return null;
 
   return (
@@ -10,7 +10,11 @@ const FavoriteSection = ({ favorites }) => {
       </h2>
       <div className="grid grid-cols-4 gap-4">
         {favorites.map((restaurant) => (
-          <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+          <RestaurantCard
+            key={restaurant.id}
+            restaurant={restaurant}
+            onFavorite={onDelete}
+          />
         ))}
       </div>
     </section>

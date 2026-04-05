@@ -1,8 +1,8 @@
 import { BASE_URL } from '../api/config';
 
-const RestaurantCard = ({ restaurant }) => {
+const RestaurantCard = ({ restaurant, onFavorite }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex cursor-pointer flex-col gap-2" onClick={() => onFavorite?.(restaurant)}>
       <div className="aspect-square w-full overflow-hidden rounded-xl bg-gray-200">
         <img
           src={`${BASE_URL}/${restaurant.image.src}`}
