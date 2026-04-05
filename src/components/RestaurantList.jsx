@@ -1,6 +1,6 @@
 import RestaurantCard from './RestaurantCard';
 
-const RestaurantList = ({ restaurants, loading, error, locationError }) => {
+const RestaurantList = ({ restaurants, loading, error, locationError, onFavorite }) => {
   if (error) {
     return (
       <div className="rounded-2xl bg-red-100 px-6 py-4 text-red-700">
@@ -24,7 +24,7 @@ const RestaurantList = ({ restaurants, loading, error, locationError }) => {
       ) : (
         <div className="grid grid-cols-4 gap-4">
           {restaurants.map((restaurant) => (
-            <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+            <RestaurantCard key={restaurant.id} restaurant={restaurant} onFavorite={onFavorite} />
           ))}
         </div>
       )}

@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import useRestaurants from './hooks/useRestaurants';
 import useLocation from './hooks/useLocation';
+import useFavorites from './hooks/useFavorites';
 import { sortPlacesByDistance } from './utils/loc';
 import FavoriteSection from './components/FavoriteSection';
 import RestaurantList from './components/RestaurantList';
@@ -8,7 +8,7 @@ import RestaurantList from './components/RestaurantList';
 const App = () => {
   const { restaurants, loading, error } = useRestaurants();
   const { location, locationError } = useLocation();
-  const [favorites, setFavorites] = useState([]);
+  const { favorites, handleAddFavorite } = useFavorites();
 
   const sortedRestaurants = location
     ? sortPlacesByDistance(restaurants, location.lat, location.lon)
@@ -23,6 +23,7 @@ const App = () => {
           loading={loading}
           error={error}
           locationError={locationError}
+          onFavorite={handleAddFavorite}
         />
       </div>
     </div>
